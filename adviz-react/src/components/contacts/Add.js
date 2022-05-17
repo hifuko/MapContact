@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import Nav from '../navigation/Nav.js';
 import Greeting from '../Greeting.js';
+import { Input, Button } from 'semantic-ui-react'
 
 class Add extends Component{
 
@@ -98,7 +99,7 @@ class Add extends Component{
                   }
               });
       } else {
-          alert("Invalid input");
+          alert("Invalid Input");
       }  
     
       
@@ -160,50 +161,48 @@ class Add extends Component{
         <section id="addNewAddress">
     
           <div class="add">
-            <h1 style={{"text-align": "center"}}>Add new addresses</h1>
+            <h1 style={{"text-align": "center"}}>New Address</h1>
 
             <form id="addform" action={this.handleAdd} onSubmit={this.handleSubmit} method="GET" class="add_form">
               <table>
                 <tr>
                     <td><label for="fn2">First Name</label></td>
-                    <td><input type="text" name="firstName" pattern="[a-zA-Z]*" id="fn2" required/></td>
+                    <td><Input type="text" name="firstName" size='mini' pattern="[a-zA-Z]*" id="fn2" required/></td>
                 </tr>
                 <tr>
                     <td><label for="n2">Name</label></td>
-                    <td><input type="text" name="name" pattern="[a-zA-Z]*" id="n2" required/></td>
+                    <td><Input type="text" name="name" size='mini' pattern="[a-zA-Z]*" id="n2" required/></td>
                 </tr>
                 <tr>
                     <td><label for="street2">Street</label></td>
-                    <td><input type="text" name="street" id="street2" required/></td>
+                    <td><Input type="text" name="street" size='mini' id="street2" required/></td>
                 </tr>
                 <tr>
                     <td><label for="pc2">Post Code</label></td>
-                    <td><input type="text" name="postCode" id="pc2" pattern="[0-9]{5}" required/></td>
+                    <td><Input type="text" name="postCode" size='mini' id="pc2" pattern="[0-9]{5}" required/></td>
                 </tr>
                 <tr>
                     <td><label for="city2">City</label></td>
-                    <td><input type="text" name="city" id="city2" pattern="[a-zA-Z]*" required/></td>
+                    <td><Input type="text" name="city" id="city2" size='mini' pattern="[a-zA-Z]*" required/></td>
                 </tr>
                 <tr>
                     <td><label for="country2">Country</label></td>
-                    <td><input type="text" name="firstName" id="country2" pattern="[a-zA-Z]*" required/></td>
+                    <td><Input type="text" name="firstName" id="country2" size='mini' pattern="[a-zA-Z]*" required/></td>
                 </tr>
                 <tr>
                     <td><label for="pr2">private</label></td>
-                    <td><input type="checkbox" name="private_" value="yes" id="pr2" style={{"zoom" : "1.5"}}/></td>
+                    <td><Input type="checkbox" name="private_" value="yes" size='mini' id="pr2" style={{"zoom" : "1.5"}}/></td>
                 </tr>
 
               </table>
-              <div align="center">
-              {/* onClick={() => this.props.handleAddContact(this.state.newObj)} */}
-                <Link to="/adviz/main">
-                  <button id="add_btn" onClick={this.handleSubmit} class="btn">Add</button>
-                </Link>
+              <div align="center">          
                 {/* <button class="btn" id="back2" onClick={this.handleBackClick} to='/main'>back</button> */}
                 <Link to="/adviz/main">
-                  <button type="button" class="btn">
-                    back
-                  </button>
+                  <Button size='large'>back</Button>
+                </Link>
+                 {/* onClick={() => this.props.handleAddContact(this.state.newObj)} */}
+                 <Link to="/adviz/main">
+                  <Button id="add_btn" size='large' onClick={this.handleSubmit} color='pink'>Add</Button>
                 </Link>
               </div>
             </form>

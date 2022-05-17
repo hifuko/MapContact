@@ -25,9 +25,7 @@ class Main extends Component{
     render(){
         return(
             <section id="main">        
-                <main>
-                    <h1>Main</h1>
-                
+                <main>                  
                     <div className="mainscreen">
                         <div className="adresslist">
                             <ul id="adresses"> 
@@ -37,8 +35,7 @@ class Main extends Component{
                         <div className="map">
                             <MapView addresses={this.state.addresses}/>
                         </div>
-                    </div>
-            
+                    </div>          
                 </main>
 
             <div className="Navbar">

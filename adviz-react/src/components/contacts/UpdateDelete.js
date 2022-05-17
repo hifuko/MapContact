@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import Nav from '../navigation/Nav.js';
 import Greeting from '../Greeting.js';
+import { Input, Button } from 'semantic-ui-react'
 
 class UpdateDelete extends Component{
 
@@ -133,7 +134,7 @@ class UpdateDelete extends Component{
                     }
                 });
         } else {
-            alert("Invalid input");
+            alert("Invalid Input");
         }       
     }
       
@@ -157,50 +158,51 @@ class UpdateDelete extends Component{
         if (sessionStorage.getItem("isAdmin") === "true" ) {
             return(
                 <section id="updateDeleteAddress">
-                    <div class="up">
+                    <div class="update">
                         <h1 style={{"text-align": "center"}}>Update/Delete address</h1>
                         <form action={this.handleAction} onSubmit={this.handleBackClick} method="GET" class="up_form">
                             <table>
                             <tr>
                                 <td><label for="fn">First Name</label></td>
-                                <td><input type="text" name="firstName" id="fn" pattern="[a-zA-Z]*" required/></td>
+                                <td><Input type="text" size='mini' name="firstName" id="fn" pattern="[a-zA-Z]*" required/></td>
                             </tr>
                             <tr>
                                 <td><label for="n">Name</label></td>
-                                <td><input type="text" name="name" id="n" pattern="[a-zA-Z]*" required/></td>
+                                <td><Input type="text" size='mini' name="name" id="n" pattern="[a-zA-Z]*" required/></td>
                             </tr>
                             <tr>
                                 <td><label for="street">Street</label></td>
-                                <td><input type="text" name="street" id="street" required/></td>
+                                <td><Input type="text" size='mini' name="street" id="street" required/></td>
                             </tr>
                             <tr>
                                 <td><label for="pc">Post Code</label></td>
-                                <td><input type="text" name="postCode" id="pc" pattern="[0-9]{5}" required/></td>
+                                <td><Input type="text" size='mini' name="postCode" id="pc" pattern="[0-9]{5}" required/></td>
                             </tr>
                             <tr>
                                 <td><label for="city">City</label></td>
-                                <td><input type="text" name="city" id="city" pattern="[a-zA-Z]*" required/></td>
+                                <td><Input type="text" size='mini' name="city" id="city" pattern="[a-zA-Z]*" required/></td>
                             </tr>
                             <tr>
                                 <td><label for="country">Country</label></td>
-                                <td><input type="text" name="firstName" id="country" pattern="[a-zA-Z]*" required/></td>
+                                <td><Input type="text" size='mini' name="firstName" id="country" pattern="[a-zA-Z]*" required/></td>
                             </tr>
                             <tr>
                                 <td><label for="pr">Private</label></td>
-                                <td><input type="checkbox" name="private" id="pr" value="yes" style={{"zoom": "1.5"}}/></td>
+                                <td><Input type="checkbox" name="private" id="pr" value="yes" style={{"zoom": "1.2"}}/></td>
                             </tr>
 
                             </table>
-                            <div style={{"padding-left": "120px"}}>
-                                {/* <Link to="/adviz/main"> */}
-                                    <button class="btn" id="update" onClick={this.update}>Update</button>
-                                {/* </Link> */}
-                                {/* <Link to="/adviz/main"> */}
-                                    <button class="btn" id="delete" onClick={this.delete}>Delete</button>
-                                {/* </Link> */}
+                           
+                            <div style={{"padding-left": "2em"}}>
+                            {/* </Link> */}
                                 <Link to="/adviz/main">
-                                    <button class="btn" id="back">back</button>
+                                    <Button size='large' id="back" style={{"margin-right": "1em"}}>Back</Button>
                                 </Link>
+                                {/* <Link to="/adviz/main"> */}
+                                <Button id="update" size='large' onClick={this.update} color='pink' style={{"margin-right": "1em"}}>Update</Button>
+                                {/* </Link> */}
+                                {/* <Link to="/adviz/main"> */}
+                                <Button id="delete" size='large' onClick={this.delete} color='black'>Delete</Button>                                
                             </div>
                         </form>
                     </div>
@@ -219,31 +221,31 @@ class UpdateDelete extends Component{
                             <table>
                             <tr>
                                 <td><label for="fn">First Name</label></td>
-                                <td><input type="text" name="firstName" id="fn" pattern="[a-zA-Z]*" required/></td>
+                                <td><Input type="text" name="firstName" id="fn" pattern="[a-zA-Z]*" required/></td>
                             </tr>
                             <tr>
                                 <td><label for="n">Name</label></td>
-                                <td><input type="text" name="name" id="n" pattern="[a-zA-Z]*" required/></td>
+                                <td><Input type="text" name="name" id="n" pattern="[a-zA-Z]*" required/></td>
                             </tr>
                             <tr>
                                 <td><label for="street">Street</label></td>
-                                <td><input type="text" name="street" id="street" required/></td>
+                                <td><Input type="text" name="street" id="street" required/></td>
                             </tr>
                             <tr>
                                 <td><label for="pc">Post Code</label></td>
-                                <td><input type="text" name="postCode" id="pc" pattern="[0-9]{5}" required/></td>
+                                <td><Input type="text" name="postCode" id="pc" pattern="[0-9]{5}" required/></td>
                             </tr>
                             <tr>
                                 <td><label for="city">City</label></td>
-                                <td><input type="text" name="city" id="city" pattern="[a-zA-Z]*" required/></td>
+                                <td><Input type="text" name="city" id="city" pattern="[a-zA-Z]*" required/></td>
                             </tr>
                             <tr>
                                 <td><label for="country">Country</label></td>
-                                <td><input type="text" name="firstName" id="country" pattern="[a-zA-Z]*" required/></td>
+                                <td><Input type="text" name="firstName" id="country" pattern="[a-zA-Z]*" required/></td>
                             </tr>
                             <tr>
                                 <td><label for="pr">Private</label></td>
-                                <td><input type="checkbox" name="private" id="pr" value="yes" style={{"zoom": "1.5"}}/></td>
+                                <td><Input type="checkbox" name="private" id="pr" value="yes" style={{"zoom": "1.5"}}/></td>
                             </tr>
 
                             </table>

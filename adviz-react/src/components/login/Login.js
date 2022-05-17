@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
+import { Input, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import axios from "axios";
+import 'semantic-ui-css/semantic.min.css'
+
 
 class Login extends Component{
 
@@ -38,24 +41,26 @@ class Login extends Component{
   render(){
     return(
       <section id="login">
-        <main>
+        <login>
           <h1>Login</h1>
-          <form name="loginform" class="loginform" onSubmit={this.handleSubmit} method="GET">
+          <form name="loginform" className="loginform" onSubmit={this.handleSubmit} method="GET">
               <div>
-                  <input id="un" type="text" name="username" required="true" pattern="[a-zA-Z]*" placeholder="default"/>
-                  <label>Username</label>
-              </div>
+                  <label>Username</label> 
+                  <br/>
+                  <Input id="un" type="text" name="username" size='mini' required="true" pattern="[a-zA-Z]*" placeholder="Username"/>
+              </div>         
               <div>
-                  <input id="pw" type="password" name="password" required="true" pattern=".*" placeholder="user"/>
                   <label>Password</label>
+                  <br/>
+                  <Input id="pw" type="password" name="password" size='mini' required="true" pattern=".*" placeholder="password"/>                 
               </div>
-              <div>
+              <div className="login_link">
                 <Link to="/main" onClick={this.handleSubmit}>
-                  <input id="login_btn" type="submit" class="btn" value="Login"/>
+                  <Button id="login_btn" type="submit" value="Login" color='pink'>Login</Button>
                 </Link>
               </div>
           </form>
-        </main>
+        </login>
       </section>
     );
   }  

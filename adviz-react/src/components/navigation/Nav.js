@@ -20,7 +20,7 @@ export default class Nav extends Component{
             <li>Main</li>
           </Link>
           <Link to="/adviz/add">
-            <li>Add Address</li>
+            <li>Add address</li>
           </Link>
           <Link to="/adviz/login" onClick={this.handleSubmit}>
             <li>Log out</li>
