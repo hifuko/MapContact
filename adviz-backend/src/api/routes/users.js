@@ -49,7 +49,7 @@ router.post("/login", (req, res, next) => {
 							isAdmin: user[0].isAdmin,
 							userId: user[0].identification
 						},
-						process.env.JWT_KEY,
+						"" + process.env.JWT_KEY,
 						{ expiresIn: "3h" }
 					);
 					// RETURN SUCESS MESSAGE, TOKEN, USERDATA

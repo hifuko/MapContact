@@ -10,8 +10,8 @@ const morgan = require("morgan");
 app.use(morgan("dev"));
 // CONNECT MONGOOSE TO MONGODB
 const mongoose = require("mongoose");
-const dbConnectionString = 'mongodb+srv://admin:ivanaleo@adviz.u98a9.mongodb.net/adviz?retryWrites=true&w=majority';
-mongoose.connect(dbConnectionString, { useMongoClient: true, useNewUrlParser: true } );
+const dbConnectionString = 'mongodb+srv://ivanaluo:kbeivana@cluster0.rousz.mongodb.net/mapcontact?retryWrites=true&w=majority';
+mongoose.connect(dbConnectionString, { useNewUrlParser: true } );
 let dbConnection = mongoose.connection;
 // checks
 dbConnection.once('open', () => console.log('connected to the database'));
