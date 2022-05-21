@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import axios from "axios";
-import MapView from './map/MapView.js';
+import MapView from '../../components/map/MapView.js';
 import { connect } from 'react-redux'
-import { add_contact } from '../redux/actions'
-import Nav from './navigation/Nav.js';
-import Greeting from './Greeting.js';
-import ContactView from './contacts/ContactView';
+import { add_contact } from '../../redux/actions'
+import Nav from '../../components/navigation/Nav.js';
+import Greeting from '../../components/Greeting.js';
+import ContactView from '../../components/contacts/ContactView';
 
 class Main extends Component{
 
@@ -24,12 +24,16 @@ class Main extends Component{
 
     render(){
         return(
-            <section id="main">        
+            <section id="main">      
+                <div className="Navbar">
+                    <Greeting />
+                    <Nav />
+                </div>  
                 <main>                  
                     <div className="mainscreen">
                         <div className="adresslist">
                             <ul id="adresses"> 
-                                <ContactView contacts={this.state.addresses}/>   
+                                <ContactView  contacts={this.state.addresses}/>                       
                             </ul>
                         </div>
                         <div className="map">
@@ -37,12 +41,6 @@ class Main extends Component{
                         </div>
                     </div>          
                 </main>
-
-            <div className="Navbar">
-            <Greeting />
-            <Nav />
-            </div>
-            
           </section>
         );
       } 

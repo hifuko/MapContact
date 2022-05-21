@@ -41,10 +41,15 @@ nav a {
 nav a:hover {
     border-bottom: 2px outset pink;
     background-position: center;
+    color: white;
 }
 
 nav ul {
     list-style-type: none;
+}
+
+.navActive {
+    background-color: rgb(253, 177, 177);
 }
 
 .login_link {

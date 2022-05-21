@@ -47,12 +47,12 @@ class Login extends Component{
               <div>
                   <label>Username</label> 
                   <br/>
-                  <Input id="un" type="text" name="username" size='mini' required="true" pattern="[a-zA-Z]*" placeholder="Username"/>
+                  <Input id="un" type="text" name="username" size='mini' required={true} pattern="[a-zA-Z]*" placeholder="Username"/>
               </div>         
               <div>
                   <label>Password</label>
                   <br/>
-                  <Input id="pw" type="password" name="password" size='mini' required="true" pattern=".*" placeholder="password"/>                 
+                  <Input id="pw" type="password" name="password" size='mini' required={true} pattern=".*" placeholder="password"/>                 
               </div>
               <div className="login_link">
                 <Link to="/main" onClick={this.handleSubmit}>

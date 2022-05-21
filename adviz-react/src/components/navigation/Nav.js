@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default class Nav extends Component{
 
@@ -16,15 +16,15 @@ export default class Nav extends Component{
       return(
         <nav>
           <ul id="navigation">
-          <Link to="/adviz/main">
+          <NavLink activeClassName="navActive" to="/adviz/main">
             <li>Main</li>
-          </Link>
-          <Link to="/adviz/add">
+          </NavLink>
+          <NavLink activeClassName="navActive" to="/adviz/add">
             <li>Add address</li>
-          </Link>
-          <Link to="/adviz/login" onClick={this.handleSubmit}>
+          </NavLink>
+          <NavLink to="/adviz/login" onClick={this.handleSubmit}>
             <li>Log out</li>
-          </Link>
+          </NavLink>
           </ul>
         </nav>
       );
@@ -32,12 +32,12 @@ export default class Nav extends Component{
       return(
         <nav>
           <ul id="navigation">
-          <Link to="/adviz/main">
+          <NavLink activeClassName="navActive" to="/adviz/main">
             <li>Main</li>
-          </Link>
-          <Link to="/adviz/login" onClick={this.handleSubmit}>
+          </NavLink>
+          <NavLink to="/adviz/login" onClick={this.handleSubmit}>
             <li>Log out</li>
-          </Link>
+          </NavLink>
           </ul>
         </nav>
       );

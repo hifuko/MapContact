@@ -40,7 +40,7 @@ class Contact extends Component{
             return("");
         } else {
             return(
-                <Link to = {{pathname: `/adviz/${this.props.id}`}} params={{ id: this.props.id }} class="reactLink">
+                <Link to = {{pathname: `/adviz/${this.props.id}`}} params={{ id: this.props.id }} className="reactLink">
                     <li onClick={this.handleClick} id={this.props.id}>{this.props.obj.firstName + " " + this.props.obj.lastName}</li>
                 </Link>
             );

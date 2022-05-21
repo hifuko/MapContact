@@ -3,8 +3,8 @@ import axios from "axios";
 import { add_contact } from '../../redux/actions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
-import Nav from '../navigation/Nav.js';
-import Greeting from '../Greeting.js';
+import Nav from '../../components/navigation/Nav.js';
+import Greeting from '../../components/Greeting.js';
 import { Input, Button } from 'semantic-ui-react'
 
 class Add extends Component{
@@ -101,98 +101,53 @@ class Add extends Component{
       } else {
           alert("Invalid Input");
       }  
-    
-      
-
-
-
-      // //e.preventDefault()
-
-      // let firstName = document.querySelector("#fn2").value;
-      // let name = document.querySelector("#n2").value;
-      // let street = document.querySelector("#street2").value;
-      // let postCode = document.querySelector("#pc2").value;
-      // let city = document.querySelector("#city2").value;
-      // let country = document.querySelector("#country2").value;
-      // // "private" is a reserved word 
-      // let private_ = document.querySelector("#pr2").checked;
-  
-  
-      // let myObj = {
-      //     "firstName": firstName,
-      //     "name": name,
-      //     "street": street,
-      //     "postCode": postCode,
-      //     "city": city,
-      //     "country": country,
-      //     "private_": private_
-      // };
-  
-      
-
-      // let myJSON = JSON.stringify(myObj);
-      // localStorage.setItem("person_" + firstName + " " + name, myJSON);
-
-      // //this.props.handleAddContact(myObj)
-
-      // //store.dispatch(add_contact(myObj))
-      // this.props.add_contact(myObj)
-  
-      // document.querySelector("#addNewAddress").style.display = "none";
-      // document.querySelector("#main").style.display = "block";
-      // document.querySelector("#addform").reset();
-
-      // todo route back to main
-
     }
-  
-
-    // handleBackClick = (e) => {
-    //   // document.querySelector("#addNewAddress").style.display = "none";
-    //   // document.querySelector("#main").style.display = "block";
-    //   document.querySelector("#addform").reset();
-
-    // }
-   
 
     render(){
       
       return(
         <section id="addNewAddress">
     
-          <div class="add">
-            <h1 style={{"text-align": "center"}}>New Address</h1>
+          <div className="Navbar">
+            <Greeting />
+            <Nav />
+          </div>
+          <div className="add">
+            <h1 style={{"textAlign": "center"}}>New Address</h1>
 
-            <form id="addform" action={this.handleAdd} onSubmit={this.handleSubmit} method="GET" class="add_form">
+            <form id="addform" onSubmit={this.handleSubmit} method="GET" className="add_form">
               <table>
-                <tr>
-                    <td><label for="fn2">First Name</label></td>
+                <tbody>
+                  <tr>
+                    <td><label htmlFor="fn2">First Name</label></td>
                     <td><Input type="text" name="firstName" size='mini' pattern="[a-zA-Z]*" id="fn2" required/></td>
                 </tr>
                 <tr>
-                    <td><label for="n2">Name</label></td>
+                    <td><label htmlFor="n2">Name</label></td>
                     <td><Input type="text" name="name" size='mini' pattern="[a-zA-Z]*" id="n2" required/></td>
                 </tr>
                 <tr>
-                    <td><label for="street2">Street</label></td>
+                    <td><label htmlFor="street2">Street</label></td>
                     <td><Input type="text" name="street" size='mini' id="street2" required/></td>
                 </tr>
                 <tr>
-                    <td><label for="pc2">Post Code</label></td>
+                    <td><label htmlFor="pc2">Post Code</label></td>
                     <td><Input type="text" name="postCode" size='mini' id="pc2" pattern="[0-9]{5}" required/></td>
                 </tr>
                 <tr>
-                    <td><label for="city2">City</label></td>
+                    <td><label htmlFor="city2">City</label></td>
                     <td><Input type="text" name="city" id="city2" size='mini' pattern="[a-zA-Z]*" required/></td>
                 </tr>
                 <tr>
-                    <td><label for="country2">Country</label></td>
+                    <td><label htmlFor="country2">Country</label></td>
                     <td><Input type="text" name="firstName" id="country2" size='mini' pattern="[a-zA-Z]*" required/></td>
                 </tr>
                 <tr>
-                    <td><label for="pr2">private</label></td>
+                    <td><label htmlFor="pr2">private</label></td>
                     <td><Input type="checkbox" name="private_" value="yes" size='mini' id="pr2" style={{"zoom" : "1.5"}}/></td>
                 </tr>
+                </tbody>
+                
 
               </table>
               <div align="center">          
@@ -206,10 +161,6 @@ class Add extends Component{
                 </Link>
               </div>
             </form>
-          </div>
-          <div className="Navbar">
-            <Greeting />
-            <Nav />
           </div>
         </section>
             

@@ -3,8 +3,8 @@ import axios from "axios";
 import { update, delete_ } from '../../redux/actions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
-import Nav from '../navigation/Nav.js';
-import Greeting from '../Greeting.js';
+import Nav from '../../components/navigation/Nav.js';
+import Greeting from '../../components/Greeting.js';
 import { Input, Button } from 'semantic-ui-react'
 
 class UpdateDelete extends Component{
@@ -158,6 +158,10 @@ class UpdateDelete extends Component{
         if (sessionStorage.getItem("isAdmin") === "true" ) {
             return(
                 <section id="updateDeleteAddress">
+                    <div className="Navbar">
+                        <Greeting />
+                        <Nav />
+                    </div>
                     <div class="update">
                         <h1 style={{"text-align": "center"}}>Update/Delete address</h1>
                         <form action={this.handleAction} onSubmit={this.handleBackClick} method="GET" class="up_form">
@@ -205,11 +209,7 @@ class UpdateDelete extends Component{
                                 <Button id="delete" size='large' onClick={this.delete} color='black'>Delete</Button>                                
                             </div>
                         </form>
-                    </div>
-                    <div className="Navbar">
-                        <Greeting />
-                        <Nav />
-                    </div>
+                    </div>         
                 </section>
             );
         } else {

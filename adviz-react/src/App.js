@@ -1,21 +1,22 @@
 // MODULES
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import ProtectedRoute from './components/routing/ProtectedRoutes';
 // LAYOUT
 import './css/App.css';
-// COMPONENTS
-import Login from './components/login/Login';
-import Main from './components/Main';
-import Add from './components/contacts/Add';
-import UpdateDelete from './components/contacts/UpdateDelete';
+// ROUTING COMPONENTS (PAGES)
+import Login from './pages/login/Login';
+import Main from './pages/contacts/Main';
+import Add from './pages/contacts/Add';
+import UpdateDelete from './pages/contacts/UpdateDelete';
 
 class App extends Component {
 
   render(){
     return(
-      <BrowserRouter>
         <div className="App">
+
+        {/* Switch: 1 path should only match 1 component. when matched, the current component will be rendered without checking if the next routes match */}
           <Switch>
             <Route path='/adviz/login' component={Login} />
             <ProtectedRoute path='/adviz/main' component={Main} />
@@ -26,7 +27,6 @@ class App extends Component {
             <ProtectedRoute path='/adviz/:address_id' component={UpdateDelete} />
           </Switch>
         </div>
-      </BrowserRouter>
     )
   }
 }

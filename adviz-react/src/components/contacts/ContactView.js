@@ -11,7 +11,7 @@ class ContactView extends Component {
                 if (key == 1) {
                     contactData.map( (contact,key) => {
                         //console.log("KONTAKT ID ", contact._id)
-                        let listItem = <Contact id={contact._id} obj={contact} objects={this.props.objects}/>
+                        let listItem = <Contact id={contact._id} key={contact._id} obj={contact} objects={this.props.objects}/>
                         contactList.push(listItem);          
                     })
                     return contactList;
