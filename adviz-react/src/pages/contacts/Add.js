@@ -71,7 +71,7 @@ class Add extends Component{
               .then( geodata => {
                   console.log("GEODATA", geodata);
                   if ( geodata == "undefined") {
-                      alert("Invalid");
+                      alert("Invalid address.");
                   } else {
                       const headers = {
                           headers: { 'Authorization': sessionStorage.getItem("token") }
@@ -90,8 +90,7 @@ class Add extends Component{
                       };
       
                       const url = "http://localhost:3001/addresses/";
-                      // axios.post(url,payload,headers);
-                      // this.props.history.push('/adviz/main')
+
                       axios.post(url,payload,headers).then(()=>{
                         this.props.history.push('/adviz/main')
                       })
@@ -99,7 +98,12 @@ class Add extends Component{
                   }
               });
       } else {
-          alert("Invalid Input");
+        if(!fn_test) alert("Invalid first name.");
+        else if(!ln_test) alert("Invalid last name.");
+        else if(!street_test) alert("Street cannot be null.");
+        else if(!pc_test) alert("Postcode should be 5 digits.");
+        else if(!city_test) alert("Invalid city.");
+        else if(!country_test) alert("Invalid country.");
       }  
     }
 
@@ -144,30 +148,23 @@ class Add extends Component{
                 </tr>
                 <tr>
                     <td><label htmlFor="pr2">private</label></td>
-                    <td><Input type="checkbox" name="private_" value="yes" size='mini' id="pr2" style={{"zoom" : "1.5"}}/></td>
+                    <td><Input type="checkbox" name="private_" value="yes" size='mini' id="pr2" style={{"zoom" : "1.2"}}/></td>
                 </tr>
                 </tbody>
-                
-
               </table>
               <div align="center">          
-                {/* <button class="btn" id="back2" onClick={this.handleBackClick} to='/main'>back</button> */}
                 <Link to="/adviz/main">
                   <Button size='large'>back</Button>
                 </Link>
-                 {/* onClick={() => this.props.handleAddContact(this.state.newObj)} */}
                  <Link to="/adviz/main">
                   <Button id="add_btn" size='large' onClick={this.handleSubmit} color='pink'>Add</Button>
                 </Link>
               </div>
             </form>
           </div>
-        </section>
-            
+        </section>       
         );
       }
-    
-    
 }
 
 export default connect(

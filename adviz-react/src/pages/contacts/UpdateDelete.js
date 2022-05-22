@@ -34,7 +34,7 @@ class UpdateDelete extends Component{
             country.value = response.data.address.country;
             isPrivate.checked = response.data.address.isPrivate;
         });
-        //normalo can only read contact info
+        //normalo can only read contact info (update/delete disabled)
         if (sessionStorage.getItem("isAdmin") === "false") {
             firstName.disabled = "disabled";
             name.disabled = "disabled";
@@ -102,7 +102,7 @@ class UpdateDelete extends Component{
                 .then( geodata => {
                     console.log("GEODATA", geodata);
                     if ( geodata === "undefined") {
-                        alert("Invalid");
+                        alert("Invalid address");
                     } else {
                         const headers = {
                             headers: { 'Authorization': sessionStorage.getItem("token") }
@@ -123,18 +123,19 @@ class UpdateDelete extends Component{
                         const base = "http://localhost:3001/addresses/";
                         const identification = String(this.props.match.params.address_id);
                         const url = String.prototype.concat(base,identification);
-                        // axios.patch(url,payload,headers);
-                        // this.props.history.push('/adviz/main')
-
-
+                       
                         axios.patch(url,payload,headers).then(()=>{
                             this.props.history.push('/adviz/main')
                         })
-
                     }
                 });
         } else {
-            alert("Invalid Input");
+            if(!fn_test) alert("Invalid first name.");
+            else if(!ln_test) alert("Invalid last name.");
+            else if(!street_test) alert("Street cannot be null.");
+            else if(!pc_test) alert("Postcode should be 5 digits.");
+            else if(!city_test) alert("Invalid city.");
+            else if(!country_test) alert("Invalid country.");
         }       
     }
       
@@ -146,11 +147,9 @@ class UpdateDelete extends Component{
         const base = "http://localhost:3001/addresses/";
         const identification = String(this.props.match.params.address_id);
         const url = String.prototype.concat(base,identification);
-        //axios.delete(url,headers);
 
         axios.delete(url,headers).then(()=>{
             this.props.history.push('/adviz/main')
-
         })
     }
 
@@ -162,48 +161,51 @@ class UpdateDelete extends Component{
                         <Greeting />
                         <Nav />
                     </div>
-                    <div class="update">
-                        <h1 style={{"text-align": "center"}}>Update/Delete address</h1>
-                        <form action={this.handleAction} onSubmit={this.handleBackClick} method="GET" class="up_form">
+                    <div className="update">
+                        <h1 style={{"textAlign": "center"}}>Update/Delete address</h1>
+                        <form action={this.handleAction} onSubmit={this.handleBackClick} method="GET" className="up_form">
                             <table>
-                            <tr>
-                                <td><label for="fn">First Name</label></td>
-                                <td><Input type="text" size='mini' name="firstName" id="fn" pattern="[a-zA-Z]*" required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="n">Name</label></td>
-                                <td><Input type="text" size='mini' name="name" id="n" pattern="[a-zA-Z]*" required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="street">Street</label></td>
-                                <td><Input type="text" size='mini' name="street" id="street" required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="pc">Post Code</label></td>
-                                <td><Input type="text" size='mini' name="postCode" id="pc" pattern="[0-9]{5}" required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="city">City</label></td>
-                                <td><Input type="text" size='mini' name="city" id="city" pattern="[a-zA-Z]*" required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="country">Country</label></td>
-                                <td><Input type="text" size='mini' name="firstName" id="country" pattern="[a-zA-Z]*" required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="pr">Private</label></td>
-                                <td><Input type="checkbox" name="private" id="pr" value="yes" style={{"zoom": "1.2"}}/></td>
-                            </tr>
+                                <tbody>
+                                    <tr>
+                                        <td><label htmlFor="fn">First Name</label></td>
+                                        <td><Input type="text" size='mini' name="firstName" id="fn" pattern="[a-zA-Z]*" required/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label htmlFor="n">Name</label></td>
+                                        <td><Input type="text" size='mini' name="name" id="n" pattern="[a-zA-Z]*" required/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label htmlFor="street">Street</label></td>
+                                        <td><Input type="text" size='mini' name="street" id="street" required/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label htmlFor="pc">Post Code</label></td>
+                                        <td><Input type="text" size='mini' name="postCode" id="pc" pattern="[0-9]{5}" required/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label htmlFor="city">City</label></td>
+                                        <td><Input type="text" size='mini' name="city" id="city" pattern="[a-zA-Z]*" required/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label htmlFor="country">Country</label></td>
+                                        <td><Input type="text" size='mini' name="firstName" id="country" pattern="[a-zA-Z]*" required/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label htmlFor="pr">Private</label></td>
+                                        <td><Input type="checkbox" name="private" id="pr" value="yes" style={{"zoom": "1.2"}}/></td>
+                                    </tr>
 
+                                </tbody>
+                            
                             </table>
                            
-                            <div style={{"padding-left": "2em"}}>
+                            <div style={{"paddingLeft": "2em"}}>
                             {/* </Link> */}
                                 <Link to="/adviz/main">
-                                    <Button size='large' id="back" style={{"margin-right": "1em"}}>Back</Button>
+                                    <Button size='large' id="back" style={{"marginRight": "1em"}}>Back</Button>
                                 </Link>
                                 {/* <Link to="/adviz/main"> */}
-                                <Button id="update" size='large' onClick={this.update} color='pink' style={{"margin-right": "1em"}}>Update</Button>
+                                <Button id="update" size='large' onClick={this.update} color='pink' style={{"marginRight": "1em"}}>Update</Button>
                                 {/* </Link> */}
                                 {/* <Link to="/adviz/main"> */}
                                 <Button id="delete" size='large' onClick={this.delete} color='black'>Delete</Button>                                
@@ -215,9 +217,9 @@ class UpdateDelete extends Component{
         } else {
             return(
                 <section id="updateDeleteAddress">
-                    <div class="up">
+                    <div className="update">
                         <h1 style={{"text-align": "center"}}>Update/Delete address</h1>
-                        <form action={this.handleAction} onSubmit={this.handleBackClick} method="GET" class="up_form">
+                        <form action={this.handleAction} onSubmit={this.handleBackClick} method="GET" className="up_form">
                             <table>
                             <tr>
                                 <td><label for="fn">First Name</label></td>
@@ -251,7 +253,7 @@ class UpdateDelete extends Component{
                             </table>
                             <div style={{"padding-left": "120px"}}>
                                 <Link to="/adviz/main">
-                                    <button class="btn" id="back">back</button>
+                                    <Button size='large' id="back" style={{"margin-right": "1em"}}>Back</Button>
                                 </Link>
                             </div>
                         </form>

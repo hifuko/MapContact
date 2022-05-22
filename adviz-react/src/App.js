@@ -1,6 +1,6 @@
 // MODULES
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import ProtectedRoute from './components/routing/ProtectedRoutes';
 // LAYOUT
 import './css/App.css';
@@ -20,11 +20,14 @@ class App extends Component {
           <Switch>
             <Route path='/adviz/login' component={Login} />
             <ProtectedRoute path='/adviz/main' component={Main} />
-            <ProtectedRoute exact path='/main/' component={Main} />
+           
+            {/* <ProtectedRoute exact path='/main/' component={Main} />
             <ProtectedRoute exact path='/adviz/' component={Main} />
-            <ProtectedRoute exact path='/' component={Main} />
+            <ProtectedRoute exact path='/' component={Main} /> */}
             <ProtectedRoute path='/adviz/add' component={Add} />
             <ProtectedRoute path='/adviz/:address_id' component={UpdateDelete} />
+            {/* when all routes above are not matched, then redirect to main */}
+            <Redirect to='/adviz/main'/>
           </Switch>
         </div>
     )

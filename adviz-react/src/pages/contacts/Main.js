@@ -17,6 +17,7 @@ class Main extends Component{
         const headers = {
             headers: { 'Authorization': sessionStorage.getItem("token") }
         };
+        //get all addresses from db
         const addressData = await axios.get('http://localhost:3001/addresses/',headers);
         const addresses = addressData.data;
         this.setState({ addresses: addresses});

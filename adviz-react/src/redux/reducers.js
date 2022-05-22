@@ -1,21 +1,16 @@
 import {ADD_CONTACT, UPDATE, CLICK_CONTACT, DELETE, SET_USERROLE, SET_LOGGEDIN} from './actionTypes'
 
 let objs = []
+let len = localStorage.length;
 
-
-
-    let len = localStorage.length;
-      for (let i = 0; i < len; i++) {
-        let key = localStorage.key(i);
-        if (key.startsWith("person_")) {
-
-          let text = localStorage.getItem(key);
-          let obj = JSON.parse(text);
-          objs.push(obj)
-          
-        }
-      }
-
+for (let i = 0; i < len; i++) {
+    let key = localStorage.key(i);
+    if (key.startsWith("person_")) {
+        let text = localStorage.getItem(key);
+        let obj = JSON.parse(text);
+        objs.push(obj)
+    }
+}
 
 const initState = {
     loggedin: false,
@@ -26,22 +21,12 @@ const initState = {
     index: -1
 };
 
-// function rootReducer (state = initState, action) {
-//     // if(action.type === "LOGIN") {
-//     //     return initState;
-//     // }
-//     console.log("=================type: " + initState.objects)
-//     return initState;
-// };
-
-
 export default function reducer(state = initState, action) {
-    console.log('reducer()', state, action)
+    console.log('==============reducer()', state, action)
     switch (action.type) {
         case ADD_CONTACT:
             const contacts = state.objects 
-            contacts.push(action.payload)
-            
+            contacts.push(action.payload)         
             return {
                 objects: contacts
             };
@@ -62,7 +47,6 @@ export default function reducer(state = initState, action) {
             delete contacts3[state.index]
             return{
                 objects: contacts3
-
             }
         case SET_LOGGEDIN:
             return {
@@ -74,14 +58,8 @@ export default function reducer(state = initState, action) {
                 ...state,
                 userRole: action.payload
             }
-
-    
         default:
             return initState;
     }
 }
 
-// export const reducer = combineReducers({
-//     rootReducer: rootReducer,
-//     add_contact: add_contact
-// })
