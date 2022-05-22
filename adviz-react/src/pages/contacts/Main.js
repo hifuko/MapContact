@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import axios from "axios";
 import MapView from '../../components/map/MapView.js';
-import { connect } from 'react-redux'
-import { add_contact } from '../../redux/actions'
 import Nav from '../../components/navigation/Nav.js';
 import Greeting from '../../components/Greeting.js';
 import ContactView from '../../components/contacts/ContactView';
@@ -47,7 +45,4 @@ class Main extends Component{
       } 
 }
 
-export default connect(
-    state => state,
-    {add_contact}
-  )(Main);
+export default Main;
