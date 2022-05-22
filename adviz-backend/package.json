@@ -10,15 +10,11 @@
     "jsonwebtoken": "^8.5.1",
     "leaflet": "^1.6.0",
     "morgan": "^1.10.0",
-    "pubsub-js": "^1.8.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-leaflet": "^2.7.0",
-    "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
-    "react-router-redux": "^5.0.0-alpha.9",
-    "react-scripts": "3.4.1",
-    "redux": "^4.0.5"
+    "react-scripts": "3.4.1"
   },
   "scripts": {
     "build": "react-scripts build",

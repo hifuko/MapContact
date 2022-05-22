@@ -192,20 +192,13 @@ class UpdateDelete extends Component{
                                         <td><label htmlFor="pr">Private</label></td>
                                         <td><Input type="checkbox" name="private" id="pr" value="yes" style={{"zoom": "1.2"}}/></td>
                                     </tr>
-
-                                </tbody>
-                            
-                            </table>
-                           
+                                </tbody>                            
+                            </table>                        
                             <div style={{"paddingLeft": "2em"}}>
-                            {/* </Link> */}
                                 <Link to="/adviz/main">
                                     <Button size='large' id="back" style={{"marginRight": "1em"}}>Back</Button>
                                 </Link>
-                                {/* <Link to="/adviz/main"> */}
                                 <Button id="update" size='large' onClick={this.update} color='pink' style={{"marginRight": "1em"}}>Update</Button>
-                                {/* </Link> */}
-                                {/* <Link to="/adviz/main"> */}
                                 <Button id="delete" size='large' onClick={this.delete} color='black'>Delete</Button>                                
                             </div>
                         </form>
@@ -215,51 +208,52 @@ class UpdateDelete extends Component{
         } else {
             return(
                 <section id="updateDeleteAddress">
-                    <div className="update">
-                        <h1 style={{"text-align": "center"}}>Update/Delete address</h1>
-                        <form action={this.handleAction} onSubmit={this.handleBackClick} method="GET" className="up_form">
-                            <table>
-                            <tr>
-                                <td><label for="fn">First Name</label></td>
-                                <td><Input type="text" name="firstName" id="fn" pattern="[a-zA-Z]*" required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="n">Name</label></td>
-                                <td><Input type="text" name="name" id="n" pattern="[a-zA-Z]*" required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="street">Street</label></td>
-                                <td><Input type="text" name="street" id="street" required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="pc">Post Code</label></td>
-                                <td><Input type="text" name="postCode" id="pc" pattern="[0-9]{5}" required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="city">City</label></td>
-                                <td><Input type="text" name="city" id="city" pattern="[a-zA-Z]*" required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="country">Country</label></td>
-                                <td><Input type="text" name="firstName" id="country" pattern="[a-zA-Z]*" required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="pr">Private</label></td>
-                                <td><Input type="checkbox" name="private" id="pr" value="yes" style={{"zoom": "1.5"}}/></td>
-                            </tr>
-
-                            </table>
-                            <div style={{"padding-left": "120px"}}>
-                                <Link to="/adviz/main">
-                                    <Button size='large' id="back" style={{"margin-right": "1em"}}>Back</Button>
-                                </Link>
-                            </div>
-                        </form>
-                    </div>
                     <div className="Navbar">
                         <Greeting />
                         <Nav />
                     </div>
+                    <div className="update">
+                        <h1 style={{"textAlign": "center"}}>Details</h1>
+                        <form action={this.handleAction} onSubmit={this.handleBackClick} method="GET" className="up_form">
+                            <table>
+                                <tbody>
+                                     <tr>
+                                        <td><label htmlFor="fn">First Name</label></td>
+                                        <td><Input type="text" size='mini' name="firstName" id="fn" pattern="[a-zA-Z]*" required/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label htmlFor="n">Name</label></td>
+                                        <td><Input type="text" size='mini' name="name" id="n" pattern="[a-zA-Z]*" required/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label htmlFor="street">Street</label></td>
+                                        <td><Input type="text" size='mini' name="street" id="street" required/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label htmlFor="pc">Post Code</label></td>
+                                        <td><Input type="text" size='mini' name="postCode" id="pc" pattern="[0-9]{5}" required/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label htmlFor="city">City</label></td>
+                                        <td><Input type="text" size='mini' name="city" id="city" pattern="[a-zA-Z]*" required/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label htmlFor="country">Country</label></td>
+                                        <td><Input type="text" size='mini' name="firstName" id="country" pattern="[a-zA-Z]*" required/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label htmlFor="pr">Private</label></td>
+                                        <td><Input type="checkbox" name="private" id="pr" value="yes" style={{"zoom": "1.2"}}/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style={{"paddingLeft": "120px"}}>
+                                <Link to="/adviz/main">
+                                    <Button size='large' id="back" style={{"marginRight": "1em"}}>Back</Button>
+                                </Link>
+                            </div>
+                        </form>
+                    </div>                   
                 </section>
             );
         }

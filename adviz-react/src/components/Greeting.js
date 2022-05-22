@@ -23,7 +23,7 @@ export default class Greeting extends Component{
             });
         } else {
             this.setState({
-                userRole: "user"
+                userRole: "non-admin user"
             });
         }
     }

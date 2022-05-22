@@ -4,10 +4,6 @@ Routing and handling of REST requests to users collection
 Implemented Requests:
 * POST /login : Log in by identification and password; returns auth token and user data
 * GET /:userID : get user by identification; protected by auth token; returns user data
-* POST /signup : create new user by JSON user Object; protected by auth token
-
-May be done:
-* check if user performing /signup is admin
 
 */
 
@@ -91,37 +87,37 @@ router.get('/:userId', checkAuth, (req, res, next) => {
 }); //GET REQUEST
 
 // REGISTER USER TO DATABASE
-router.post('/signup', checkAuth, (req, res, next) => {
-	bcrypt.hash(req.body.password, 10, (err, hash) => {
-		if (err) {
-			return res.status(500).json({
-				error: err
-			});
-		} else {
-			const user = new User({
-				_id: new mongoose.Types.ObjectId(),
-				identification: req.body.identification,
-				firstName: req.body.firstName,
-				lastName: req.body.lastName,
-				password: hash,
-				isAdmin: req.body.isAdmin
-			});
-			user
-				.save()
-				.then(result => {
-					console.log(result);
-					res.status(201).json({
-						message: "Created user successfully"
-					});
-				})
-				.catch(err => {
-					console.log(err);
-					res.status(500).json({
-						error: err
-					});
-				});
-		}
-	});
-}); //POST REQUEST
+// router.post('/signup', checkAuth, (req, res, next) => {
+// 	bcrypt.hash(req.body.password, 10, (err, hash) => {
+// 		if (err) {
+// 			return res.status(500).json({
+// 				error: err
+// 			});
+// 		} else {
+// 			const user = new User({
+// 				_id: new mongoose.Types.ObjectId(),
+// 				identification: req.body.identification,
+// 				firstName: req.body.firstName,
+// 				lastName: req.body.lastName,
+// 				password: hash,
+// 				isAdmin: req.body.isAdmin
+// 			});
+// 			user
+// 				.save()
+// 				.then(result => {
+// 					console.log(result);
+// 					res.status(201).json({
+// 						message: "Created user successfully"
+// 					});
+// 				})
+// 				.catch(err => {
+// 					console.log(err);
+// 					res.status(500).json({
+// 						error: err
+// 					});
+// 				});
+// 		}
+// 	});
+// }); //POST REQUEST
 
 module.exports = router;

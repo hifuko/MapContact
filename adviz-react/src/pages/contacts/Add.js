@@ -27,14 +27,13 @@ class Add extends Component{
         let postcode = plz;
         // let country = address.country; // unused
         let url = "https://nominatim.openstreetmap.org/search?postalcode=" + postcode + "&street=" + street + "&format=json&addressdetails=1";
-        // console.log(address + " " + url);
         // FIRE REQUEST AND RETURN GEOGRAPHICAL DATA
         return fetch(url)
                 .then(function (response) {
                         return response.json();
                 })
                 .then(function (jsonResponse) {
-                        if (jsonResponse == false || typeof (jsonResponse) == "undefined") {
+                        if (jsonResponse === false || typeof (jsonResponse) === "undefined") {
                                 return false;
                         }
                         let lat = jsonResponse[0].lat;

@@ -52,7 +52,6 @@ class MapView extends Component {
                         return <Marker position={ data } />
                     })
                 }
-
             </Map>
             :
             'Data is loading..'
