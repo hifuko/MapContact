@@ -19,7 +19,7 @@ class Login extends Component{
     };
     // FIRE AND PROCESS REQUEST
     (async () => {
-      await axios.post('http://localhost:3001/auth/login',logindata,headers)
+      await axios.post(process.env.REACT_APP_URL + 'auth/login',logindata,headers)
         .then(
           (resp) => {
             console.log("RESPONSE ",resp);
