@@ -1,6 +1,0 @@
-export const ADD_CONTACT = 'ADD_CONTACT'
-export const UPDATE = 'UPDATE'
-export const CLICK_CONTACT = 'CLICK_CONTACT'
-export const DELETE = 'DELETE'
-export const SET_LOGGEDIN = 'SET_LOGGEDIN'
-export const SET_USERROLE = 'SET_USERROLE'

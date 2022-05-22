@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import { click_contact } from '../../redux/actions'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 
 class Contact extends Component{
@@ -18,7 +16,4 @@ class Contact extends Component{
       }
 }
 
-export default connect(
-    state=>state,
-    {click_contact}
-  )(Contact);
+export default Contact;

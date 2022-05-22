@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import axios from "axios";
-import { add_contact } from '../../redux/actions'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import Nav from '../../components/navigation/Nav.js';
 import Greeting from '../../components/Greeting.js';
@@ -167,7 +165,4 @@ class Add extends Component{
       }
 }
 
-export default connect(
-  state=>state,
-  {add_contact}
-)(Add);
+export default Add;

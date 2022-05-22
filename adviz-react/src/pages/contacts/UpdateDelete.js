@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import axios from "axios";
-import { update, delete_ } from '../../redux/actions'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import Nav from '../../components/navigation/Nav.js';
 import Greeting from '../../components/Greeting.js';
@@ -268,8 +266,5 @@ class UpdateDelete extends Component{
     }  
 }
 
-export default connect(
-    state=>state,
-    {update, delete_}
-  )(UpdateDelete);
+export default UpdateDelete;
 
