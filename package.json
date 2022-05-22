@@ -21,7 +21,7 @@
     "eject": "react-scripts eject",
     "test": "react-scripts test",
     "start": "nodemon src/server.js",
-    "heroku-postbuild": "cd ../adviz-react && npm install && npm run build"
+    "heroku-postbuild": "cd adviz-react && npm install && npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
