@@ -5,7 +5,7 @@ const app = express();
 //This will create a middleware.
 //When you navigate to the root page, it would use the built react-app
 const path = require("path");
-app.use(express.static(path.resolve(__dirname, "../../adviz-react/build")));
+app.use(express.static(path.resolve(__dirname, "./adviz-react/build")));
 
 // BODY PARSER SETTINGS
 const bodyParser = require("body-parser");
