@@ -39,7 +39,7 @@ Open [http://localhost:3001](http://localhost:3001/) to view it in the browser.
 
 ## Login
 
-Go to http://localhost:3000/adviz/login or https://mapcontact.herokuapp.com/adviz/login
+Go to http://localhost:3001/adviz/login or https://mapcontact.herokuapp.com/adviz/login
 
 Admin user: 
 
