@@ -1,6 +1,12 @@
 // EXPRESS SETTINGS
 const express = require("express");
 const app = express();
+
+//This will create a middleware.
+//When you navigate to the root page, it would use the built react-app
+const path = require("path");
+app.use(express.static(path.resolve(__dirname, "./adviz-react/build")));
+
 // BODY PARSER SETTINGS
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,14 +38,14 @@ app.use((req, res, next) => {
   }
   next();
 });
-app.use('/auth', userRoutes);
-app.use('/addresses', addressRoutes);
-// ERROR HANDLING
+app.use('/api/auth', userRoutes);
+app.use('/api/addresses', addressRoutes);
+
+// Fallback behavior: return index.html
 app.use((req, res, next) => {
-  const error = new Error("Not found");
-  error.status = 404;
-  next(error);
+  res.sendFile(path.join(__dirname, './adviz-react/build/index.html'));
 });
+// ERROR HANDLING
 app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({

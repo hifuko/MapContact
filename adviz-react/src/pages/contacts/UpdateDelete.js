@@ -20,7 +20,7 @@ class UpdateDelete extends Component{
         const headers = {
             headers: { 'Authorization': sessionStorage.getItem("token") }
         };
-        const url = "http://localhost:3001/addresses/" + this.props.match.params.address_id 
+        const url = process.env.REACT_APP_URL + "api/addresses/" + this.props.match.params.address_id 
         axios.get(url,headers)
         .then( response => {
             console.log(response.data.address)
@@ -118,7 +118,7 @@ class UpdateDelete extends Component{
                             "longitude": geodata[1],
                         };
         
-                        const base = "http://localhost:3001/addresses/";
+                        const base = process.env.REACT_APP_URL + "api/addresses/";
                         const identification = String(this.props.match.params.address_id);
                         const url = String.prototype.concat(base,identification);
                        
@@ -142,7 +142,7 @@ class UpdateDelete extends Component{
         const headers = {
             headers: { 'Authorization': sessionStorage.getItem("token") }
         };
-        const base = "http://localhost:3001/addresses/";
+        const base = process.env.REACT_APP_URL + "api/addresses/";
         const identification = String(this.props.match.params.address_id);
         const url = String.prototype.concat(base,identification);
 

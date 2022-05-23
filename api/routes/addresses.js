@@ -56,7 +56,7 @@ router.post('/', checkAuth, (req, res, next) => {
           latitude: result.latitude,
           longitude: result.longitude,
         },
-        location: "http://localhost:3001/addresses/" + result._id
+        location: process.env.REACT_APP_URL + "addresses/" + result._id
       });
     }) //then
     .catch(err => {
@@ -86,7 +86,7 @@ router.get('/', checkAuth, (req, res, next) => {
             isPrivate: doc.isPrivate,
             latitude: doc.latitude,
             longitude: doc.longitude,
-            location: "http://localhost:3001/addresses/" + doc._id
+            location: process.env.REACT_APP_URL + "addresses/" + doc._id
           };
         })
       };
@@ -126,7 +126,7 @@ router.get('/:addressId', checkAuth, (req, res, next) => {
           isPrivate: doc.isPrivate,
           latitude: doc.latitude,
           longitude: doc.longitude,
-          location: "http://localhost:3001/addresses/" + doc._id
+          location: process.env.REACT_APP_URL + "addresses/" + doc._id
         }
       };
       res.status(200).json(response);
@@ -142,14 +142,6 @@ router.get('/:addressId', checkAuth, (req, res, next) => {
 // UPDATE ADDRESS BY ID
 router.patch('/:addressId', checkAuth, (req, res, next) => {
   const id = req.params.addressId;
-  // let latitude = 0;
-  // let longitude = 0;
-  // Address.find({ _id: id })
-  //   .exec()
-  //   .then(doc => {
-  //     latitude = doc.latitude,
-  //     longitude = doc.longitude
-  //   })
 
   Address.update(
     { _id: id },
