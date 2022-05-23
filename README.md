@@ -2,6 +2,8 @@
 
 This is a single-page application (SPA) that enables users to record people's addresses and show them on a map. 
 
+The project is connected to MongoDB Atlas cluster and is deployed on Heroku:  https://mapcontact.herokuapp.com/
+
 
 ![Screenshot from 2022-05-22 19-43-23](https://user-images.githubusercontent.com/45092816/169708597-25b51a99-6641-4224-a802-ad3c46027563.png)
 
@@ -14,7 +16,7 @@ react@16.13.1 + react-router@5.2.0 + axios@0.19.2 + semantic-ui-react@2.1.2 + le
 ### Backend
 node@14.18.0 + express@4.17.1 + mongoDB + mongoose@5.9.22 + jsonwebtoken@8.5.1
 
-## Run the project
+## Run the project locally
 
 ### Frontend
 
@@ -22,21 +24,22 @@ Enter **adviz-react**, run
 
 `npm install`
 
-`npm start`
+`npm run build`
 
-Open [http://localhost:3000](http://localhost:3000/) to view it in the browser.
 
 ### Backend
 
-Enter **adviz-backend**, run 
+Under the root directory, run 
 
 `npm install`
 
 `npm start`
 
+Open [http://localhost:3001](http://localhost:3001/) to view it in the browser.
+
 ## Login
 
-Go to http://localhost:3000/adviz/login
+Go to http://localhost:3000/adviz/login or https://mapcontact.herokuapp.com/adviz/login
 
 Admin user: 
 
@@ -52,7 +55,8 @@ username: normalo, password: 123
 
 ## Features
 
-- There are two types of users: admin and normalo.
+- Only logged-in users can see contacts/addresses. 
+- There are two types of logged-in users: admin and normalo.
 - Admin users can see all contacts/addresses including the private ones, as well as add, update and delete contacts/addresses. The addresses will be marked in the map.
 
 ![Screenshot from 2022-05-22 19-43-23](https://user-images.githubusercontent.com/45092816/169709091-88eb0799-1d66-460e-99e8-170cd6e7ee32.png)
