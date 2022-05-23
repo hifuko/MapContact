@@ -86,7 +86,7 @@ class Add extends Component{
                           "longitude": geodata[1],
                       };
       
-                      const url = process.env.REACT_APP_URL + "addresses/";
+                      const url = process.env.REACT_APP_URL + "api/addresses/";
 
                       axios.post(url,payload,headers).then(()=>{
                         this.props.history.push('/adviz/main')

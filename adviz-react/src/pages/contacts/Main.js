@@ -16,7 +16,7 @@ class Main extends Component{
             headers: { 'Authorization': sessionStorage.getItem("token") }
         };
         //get all addresses from db
-        const addressData = await axios.get(process.env.REACT_APP_URL + 'addresses/', headers);
+        const addressData = await axios.get(process.env.REACT_APP_URL + 'api/addresses/', headers);
         const addresses = addressData.data;
         this.setState({ addresses: addresses});
     }

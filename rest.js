@@ -38,14 +38,14 @@ app.use((req, res, next) => {
   }
   next();
 });
-app.use('/auth', userRoutes);
-app.use('/addresses', addressRoutes);
-// ERROR HANDLING
+app.use('/api/auth', userRoutes);
+app.use('/api/addresses', addressRoutes);
+
+// Fallback behavior: return index.html
 app.use((req, res, next) => {
-  const error = new Error("Not found");
-  error.status = 404;
-  next(error);
+  res.sendFile(path.join(__dirname, './adviz-react/build/index.html'));
 });
+// ERROR HANDLING
 app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({
