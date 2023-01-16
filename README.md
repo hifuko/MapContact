@@ -2,7 +2,7 @@
 
 This is a single-page application (SPA) that enables users to record people's addresses and show them on a map. 
 
-The project is connected to MongoDB Atlas cluster and is deployed on Heroku:  https://mapcontact.herokuapp.com/
+The project was connected to MongoDB Atlas cluster and deployed on Heroku. Unfortunately, as of November 28th, 2022, free Heroku Dynos, free Heroku Postgres, and free Heroku Data for Redis® plans are no longer available.
 
 
 ![Screenshot from 2022-05-22 19-43-23](https://user-images.githubusercontent.com/45092816/169708597-25b51a99-6641-4224-a802-ad3c46027563.png)
@@ -39,7 +39,7 @@ Open [http://localhost:3001](http://localhost:3001/) to view it in the browser.
 
 ## Login
 
-Go to http://localhost:3001/adviz/login or https://mapcontact.herokuapp.com/adviz/login
+Go to http://localhost:3001/adviz/login 
 
 Admin user: 
 
